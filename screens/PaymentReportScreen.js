@@ -34,8 +34,7 @@ export default function PaymentReportScreen() {
         return;
       }
       const formatDate = (date) => date.toISOString().split('T')[0]; // 'YYYY-MM-DD'
-      //const response = await fetch(`${BASE_URL}/payments?from=${formatDate(fromDate)}&to=${formatDate(toDate)}`, {
-      const response = await fetch(`${BASE_URL}/payments/fetchpayment`, {
+      const response = await fetch(`${BASE_URL}/payments?from=${formatDate(fromDate)}&to=${formatDate(toDate)}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
