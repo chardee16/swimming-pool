@@ -5,12 +5,12 @@ import { TextInput, Button, Title } from 'react-native-paper';
 import BASE_URL from '../config';
 
 export default function LoginScreen({ navigation }) {
-  const [email, setUsername] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
-    if (!email || !password) {
-      Alert.alert('Please enter email and password');
+    if (!username || !password) {
+      Alert.alert('Please enter username and password');
       return;
     }
 
@@ -19,7 +19,7 @@ export default function LoginScreen({ navigation }) {
       const response = await fetch(`${BASE_URL}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ username, password }),
       });
 
       const data = await response.json();
@@ -41,8 +41,8 @@ export default function LoginScreen({ navigation }) {
     <View style={styles.container}>
       <Title style={{ marginBottom: 20 }}>Login</Title>
       <TextInput
-        label="Email"
-        value={email}
+        label="Username"
+        value={username}
         onChangeText={setUsername}
         style={styles.input}
         autoCapitalize="none"

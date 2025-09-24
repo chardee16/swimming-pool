@@ -38,7 +38,7 @@ export default function ClientsScreen({ route, navigation }) {
         return;
       }
 
-      const response = await fetch(`${BASE_URL}/clients`, {
+      const response = await fetch(`${BASE_URL}/clients/getallclient`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
